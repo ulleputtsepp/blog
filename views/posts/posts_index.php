@@ -1,4 +1,4 @@
-<h1>Welcome!</h1>
+<!--<h1>Welcome!</h1>
 
 
 <p>This is the welcome controller's default view file. It is located at <code>/views/welcome/welcome_index.php</code>.
@@ -51,12 +51,39 @@ server by jQuery and server's response will be written to the box below.
 <h4>Traditional POST submit example</h4>
 <p>Here is an example how to use traditional POST to send data to the server. Click Post after filling the form. The
     server will invoke <code>post::post_index()</code> action (which is in <code>/controllers/posts.php</code> file)
-    which just dumps $_POST to the screen.</p>
+    which just dumps $_POST to the screen.</p>-->
+
 <!-- Button for executing post -->
-<form method="post">
+<!--<form method="post">
     <input type="text" name="foobar"/>
     <input type="submit" value="Post"/>
-</form>
+</form>-->
+<!-- php foreach kood-->
+<div class="span8">
+    <?php foreach($posts as $post): ?>
+        <h1><?=$post['post_subject'] ?></h1>
+        <p><?=$post['post_text'] ?></p>
+        <div>
+            <span class="badge badge-success"><?=$post['post_created'] ?></span>
+            <div class="pull-right"><span class="label"><?=$post['user_id'] ?></span> <span class="label">story</span> <span class="label">blog</span>
+                <span class="label">personal</span></div>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<!--https://bootsnipp.com/snippets/featured/simple-blog-layout-example
+alguse ja lõpu tagid siit ülaloleva php koodi jaoks:
+<div class="span8">
+    <h1>Alice in Wonderland, part dos</h1>
+    <p>'You ought to be ashamed of yourself for asking such a simple question,' added the Gryphon; and then they both sat silent and looked at poor Alice, who felt ready to sink into the earth. At last the Gryphon said to the Mock Turtle, 'Drive on, old fellow! Don't be all day about it!' and he went on in these words:
+        'Yes, we went to school in the sea, though you mayn't believe it—'
+        'I never said I didn't!' interrupted Alice.
+        'You did,' said the Mock Turtle.</p>
+    <div>
+        <span class="badge badge-success">Posted 2012-08-02 20:47:04</span><div class="pull-right"><span class="label">alice</span> <span class="label">story</span> <span class="label">blog</span> <span class="label">personal</span></div>
+    </div>
+</div>
+    <hr>-->
 
 <!-- Code for ajax -->
 <script type="text/javascript">
