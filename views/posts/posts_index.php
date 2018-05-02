@@ -61,7 +61,7 @@ server by jQuery and server's response will be written to the box below.
 <!-- php foreach kood-->
 <div class="span8">
     <?php foreach($posts as $post): ?>
-        <h1><?=$post['post_subject'] ?></h1>
+        <h1><a href="<?=BASE_URL?>posts/view/<?=$post['post_id']?>"><?=$post['post_subject'] ?></a></h1>
         <p><?=$post['post_text'] ?></p>
         <div>
             <span class="badge badge-success"><?=$post['post_created'] ?></span>
