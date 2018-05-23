@@ -65,8 +65,11 @@ server by jQuery and server's response will be written to the box below.
         <p><?=$post['post_text'] ?></p>
         <div>
             <span class="badge badge-success"><?=$post['post_created'] ?></span>
-            <div class="pull-right"><span class="label"><?=$post['user_id'] ?></span> <span class="label">story</span> <span class="label">blog</span>
-                <span class="label">personal</span></div>
+            <div class="pull-right"><span class="label"><?=$post['user_id'] ?></span>
+                <span class="label">story</span>
+                <!--<span class="label">blog</span>
+                <span class="label">personal</span>-->
+            </div>
         </div>
     <?php endforeach ?>
 </div>
