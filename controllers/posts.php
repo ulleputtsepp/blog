@@ -12,6 +12,10 @@ class posts extends Controller
     function index()
     {
         $this->posts = get_all("SELECT * FROM post");
+        $_tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag");
+        foreach($_tags as $tag){
+            $this->tags[$tag['post_id']][] = $tag;
+        }
     }
     /**
      * Post view
@@ -19,6 +23,8 @@ class posts extends Controller
     function view(){
         $post_id = $this->params[0];
         $this->post = get_first("SELECT * FROM post NATURAL JOIN users WHERE post_id='$post_id'");
+        $this->tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
+        $this->comments = get_all("SELECT * FROM post_comments NATURAL JOIN comment WHERE post_id='$post_id'");
     }
     /**
      * This function will only be ran in case of an AJAX request. No view will be attempted to load after this function.
